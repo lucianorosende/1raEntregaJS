@@ -1,63 +1,78 @@
-const users = [
+class Items {
+
+    constructor(nombre, edad, nacimiento){
+
+        this.nombre = nombre.toUpperCase();
+        this.edad = parseInt(edad);
+        this.nacimiento = parseInt(nacimiento);
 
 
-    {
 
-        nombre: "Alberto",
-        segundoNombre: "Martin",
-        edad: 50,
-        nacimiento: 1972
-    },
-    
-    {
-
-        nombre: "Luciano",
-        segundoNombre: "Sebastian",
-        edad: 25,
-        nacimiento: 1996
-    },
-
-    {
-
-        nombre: "Sabrina",
-        segundoNombre: "Josefa",
-        edad: 20,
-        nacimiento: 2001
     }
-];
 
-
-users.push({
-
-    nombre: "Juan",
-    segundoNombre: "Lautaro",
-    edad: 24,
-    nacimiento: 1997
-
-
-})
+    
+    
+}
 
 
 
-// Este sort es para ordenar la edad de menor a mayor
+const users = [];
 
-users.sort((a, b) => {
+users.push(new Items("Alberto", 50, 1972));
+users.push(new Items("Luciano", 25, 1996));
+users.push(new Items("Sabrina", 20, 2001));
+users.push(new Items("Juan", 24, 1997));
 
-    return a.edad - b.edad;
-});
 
-// Este sort es para ordenar la fecha de nacimiento de mayor a menor
+let holder = [];
+let holderTwo = [];
+let holderThree = [];
 
-users.sort((a, b) => {
+function ages(){
+    for (const Items of users) {
+        
+        holder.push(Items.edad)
+        holder.sort(function(a, b){
+            return a - b;
+            });
+        
+    }
+}
 
-    return b.nacimiento - a.nacimiento;
-});
+function birth(){
+    for (const Items of users) {
+        
+        holderTwo.push(Items.nacimiento)
+        holderTwo.sort(function(a, b){
+            return a - b;
+            });
+        
+    }
+}
 
-// // Este sort es para que este ordenado de la Z a la A
+function names(){
+    for (const Items of users) {
+        
+        holderThree.push(Items.nombre)
+        holderThree.sort();
+        
+    }
+}
 
-users.reverse();
+ages();
+birth();
+names();
 
-// // // Este sort es para que este ordenado de la A a la Z
 
-users.sort();
+    
+console.log(holder);    
+console.log(holderTwo);    
+console.log(holderThree);    
+
+
+    
+
+
+
+
 
